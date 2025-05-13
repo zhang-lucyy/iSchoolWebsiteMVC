@@ -1,0 +1,73 @@
+﻿@model P3.Models.DegreesModel
+
+@{
+	ViewData["Title"] = Model.pageTitle;
+}
+
+<body class="blur-background">
+	<h1>@Model.pageTitle</h1>
+
+	@* Display each undergrad degree *@
+	<h2>Undergraduate Degrees</h2>
+	<section class="undergrad">
+		<div class="accordion">
+			@foreach (var degree in Model.undergraduate)
+			{
+				<h3>@degree.title</h3>
+				<div>
+					<p>@degree.description</p>
+					<strong>Concentrations:</strong>
+					@foreach (var concentration in degree.concentrations)
+					{
+						<p>@concentration</p>
+					}
+				</div>
+			}
+		</div>
+	</section>
+
+	@* Display each grad degree *@
+	<h2>Graduate Degrees</h2>
+	<section class="grad">
+		<div class="accordion">
+			@foreach (var degree in Model.graduate)
+			{
+				@* display graduate certificates *@ 
+				if (degree.availableCertificates != null)
+				{
+					<h3>Graduate Advanced Certificates</h3>
+					<div>
+						@foreach (var cert in degree.availableCertificates)
+						{
+							<p>@cert</p>
+						}
+					</div>
+				} 
+				@* otherwise display graduate degree *@
+				else
+				{
+					<h3>@degree.title</h3>
+					<div>
+						<p>@degree.description</p>
+						<strong>Concentrations:</strong>
+						@foreach (var concentration in degree.concentrations)
+						{
+							<p>@concentration</p>
+						}
+					</div>
+				}
+			}
+		</div>
+	</section>
+</body>
+@* Allows all sections to be collapsible in the accordion *@
+@section Scripts {
+	<script>
+		$(function() {
+			$(".accordion").accordion({
+				collapsible: true,
+				active: false
+			});
+		});
+	</script>
+}

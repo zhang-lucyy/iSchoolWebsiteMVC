@@ -1,0 +1,136 @@
+﻿@model P3.Models.EmploymentModel
+@{
+	ViewData["Title"] = Model.pageTitle;
+}
+<body class="blur-background">
+	<h1>@Model.introduction.title</h1>
+
+	@* Display the two intro paragraphs *@
+	@foreach (var paragraph in Model.introduction.content)
+	{
+		<div class="intro-section">
+			<h3>@paragraph.title</h3>
+			<p>@paragraph.description</p>
+		</div>
+	}
+
+	@* Display the degree statistics *@
+	<div class="stats-box">
+		<h3>Degree Statistics</h3>
+		<div class="stats">
+			@foreach (var stat in Model.degreeStatistics.statistics)
+			{
+				<div class="stat">
+					<h4>@stat.value</h4>
+					<p>@stat.description</p>
+				</div>
+			}
+		</div>
+	</div>
+
+	@* Display the list of employers and careers *@
+	<div class="employers-careers">
+		@* Each employer name *@
+		<div id="employersList">
+			<h4>Employers</h4>
+			@foreach (var name in Model.employers.employerNames)
+			{
+				<p>@name</p>
+			}
+		</div>
+
+		@* Each eareer name *@
+		<div id="careersList">
+			<h4>Careers</h4>
+			@foreach (var name in Model.careers.careerNames)
+			{
+				<p>@name</p>
+			}
+		</div>
+	</div>
+
+	@* 2 tables *@
+	<div id="tabs">
+		<ul>
+			<li><a href="#coopTable">Co-op</a></li>
+			<li><a href="#professionalTable">Professional Employment</a></li>
+		</ul>
+		@* Coop Table *@
+		<div id="coopTable">
+			<table id="coop" class="display">
+				<thead>
+					@* Headers for coop table *@
+					<tr>
+						<th>Employer</th>
+						<th>Degree</th>
+						<th>City</th>
+						<th>Term</th>
+					</tr>
+				</thead>
+				<tbody>
+					@* insert each row *@
+					@foreach (var row in Model.coopTable.coopInformation)
+					{
+						<tr>
+							<td>@row.employer</td>
+							<td>@row.degree</td>
+							<td>@row.city</td>
+							<td>@row.term</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+
+		@* Professional Employment Table *@
+		<div id="professionalTable">
+			<table id="professional" class="display">
+				<thead>
+					@* Headers for professional employment table *@
+					<tr>
+						<th>Employer</th>
+						<th>Degree</th>
+						<th>City</th>
+						<th>Title</th>
+						<th>Start Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					@* insert each row *@
+					@foreach (var row in Model.employmentTable.professionalEmploymentInformation)
+					{
+						<tr>
+							<td>@row.employer</td>
+							<td>@row.degree</td>
+							<td>@row.city</td>
+							<td>@row.title</td>
+							<td>@row.startDate</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+@* Tabs to navigate between coop table and employment table *@
+@section Scripts {
+	<script>
+		$(function() {
+			$("#tabs").tabs();
+		});
+
+		new DataTable('#professional', {
+			paging: false,
+			scrollCollapse: true,
+			scrollY: '300px'
+		});
+
+		new DataTable('#coop', {
+			paging: false,
+			scrollCollapse: true,
+			scrollY: '300px'
+		});
+		
+	</script>
+}

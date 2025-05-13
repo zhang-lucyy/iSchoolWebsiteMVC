@@ -1,0 +1,36 @@
+﻿@model P3.Models.MinorsModel
+
+@{
+	ViewData["Title"] = Model.pageTitle;
+}
+<body class="blur-background">
+	<h1>@Model.pageTitle</h1>
+	<section class="minors">
+		<div class="accordion">
+			@foreach (var minor in Model.UgMinors)
+			{
+				<h3>@minor.title</h3>
+				<div>
+					<p>@minor.description</p>
+					@foreach (var course in minor.courses)
+					{
+						<button>@course</button>
+					}
+					<p>@minor.note</p>
+				</div>
+			}
+		</div>
+	</section>
+</body>
+
+@* Allows all sections to be collapsible in the accordion *@
+@section Scripts {
+	<script>
+		$(function() {
+			$(".accordion").accordion({
+				collapsible: true,
+				active: false
+			});
+		});
+	</script>
+}

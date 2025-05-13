@@ -1,0 +1,60 @@
+﻿@model P3.Models.PeopleModel
+
+@{
+	ViewData["Title"] = Model.title;
+}
+<body class="blur-background">
+	<h1>@Model.title</h1>
+	<h4>@Model.subTitle</h4>
+
+	@* Tabs to navigate between faculty & staff *@
+	<div id="tabs"> 
+		<ul>
+			<li><a href="#faculty">Faculty</a></li>
+			<li><a href="#staff">Staff</a></li>
+		</ul>
+		@* Faculty tab *@
+		<div id="faculty">
+			@foreach (var person in Model.faculty)
+			{
+				@* Click to display additional information regarding the faculty member *@
+				<div class="individual"
+					data-bs-toggle="popover" data-bs-placement="right"
+					data-bs-custom-class="custom-popover"
+					data-bs-title="@person.name"
+					data-bs-html="true"
+					 data-bs-content="@($"{person.tagline}<br>{person.title}<br>{person.office}<br>{person.phone}<br>{person.email}")">
+					<img alt="person" src=@person.imagePath />
+					<h4>@person.name</h4>
+				</div>
+			}
+		</div>
+
+		@* Staff tab *@
+		<div id="staff">
+			@foreach (var person in Model.staff)
+			{
+				@* Click to display additional information regarding the staff member *@
+				<div class="individual"
+					 data-bs-toggle="popover" data-bs-placement="right"
+					 data-bs-custom-class="custom-popover"
+					 data-bs-title="@person.name"
+					 data-bs-html="true"
+					 data-bs-content="@($"{person.tagline}<br>{person.title}<br>{person.office}<br>{person.phone}<br>{person.email}")">
+					<img alt="person" src=@person.imagePath />
+					<h4>@person.name</h4>
+				</div>
+			}
+		</div>
+	</div>
+</body>
+
+@section Scripts {
+	<script>
+		$(function() {
+			$("#tabs").tabs();
+		});
+		const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+		const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+	</script>
+}

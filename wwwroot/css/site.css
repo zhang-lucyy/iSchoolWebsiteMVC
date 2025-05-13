@@ -1,0 +1,256 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../rit.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.blur-background {
+    backdrop-filter: blur(3px);
+}
+
+/* Styles for the navigation */
+header {
+    padding-top: 5px;
+}
+.navbar {
+    border-radius: 300px;
+    background-color: white;
+    margin: 1rem;
+}
+
+.navbar-nav {
+    justify-content: space-evenly;
+    width: 100%;
+    
+}
+
+.active-link {
+    color: orange;
+    font-weight: bold;
+    border-bottom: 2px solid orange;
+}
+
+/* Styles for Index page */
+#first, #second {
+    color: white;
+    font-family: "Lucida Bright";
+    text-align: left;
+    font-size: 55px;
+    text-shadow: 4px 4px 5px orange;
+}
+
+#first {
+    padding-top: 50px;
+}
+
+#third {
+    color: white;
+    text-align: left;
+    font-size: 30px;
+    text-shadow: 4px 4px 5px orange;
+}
+
+/* Styles for about page */
+.about {
+    padding: 2.5%;
+    margin: 4.5%;
+    border: solid 3px gray;
+    box-shadow: 4px 4px orange;
+    text-align: center;
+    background-color: white;
+    justify-content: center;
+}
+
+h1, h2, h3, h4{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Styles for Degrees page */
+.undergrad {
+    padding-bottom: 50px;
+}
+
+.accordion {
+    width: 60%;
+    margin: auto;
+}
+
+.accordion h3 {
+    color: black;
+    text-shadow: none;
+}
+
+.accordion .ui-accordion-content {
+    max-height: 250px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* Styles for Minors page */
+.minors {
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+/* Styles for Employment page */
+.intro-section, .stats-box {
+    padding: 2.5%;
+    margin: 4.5%;
+    border: solid 3px gray;
+    box-shadow: 4px 4px orange;
+    text-align: center;
+    background-color: white;
+}
+
+.stats-box h3 {
+    color: black;
+    text-shadow: none;
+}
+
+.intro-section h3 {
+    color: black;
+    text-shadow: none;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.employers-careers {
+    justify-content: center;
+}
+
+#employersList, #careersList {
+    padding: 2.5%;
+    margin: 4.5%;
+    border: solid 3px gray;
+    box-shadow: 4px 4px orange;
+    text-align: center;
+    background-color: white;
+}
+
+#employersList h4 {
+    color: black;
+    text-shadow: none;
+}
+
+#careersList h4 {
+    color: black;
+    text-shadow: none;
+}
+
+.stat {
+    flex: 1 1 200px;
+    padding: 1rem;
+}
+
+.stats h3 {
+    color: black;
+    text-shadow: none;
+}
+
+.stats h4 {
+    color: orange;
+    text-shadow: none;
+}
+
+.employers-careers {
+    display: flex;
+}
+
+#tabs {
+    padding: 2.5%;
+    margin-bottom: 8%;
+    border: solid 3px gray;
+    box-shadow: 4px 4px orange;
+    text-align: center;
+    background-color: white;
+}
+
+/* Styles for People page */
+#faculty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+#faculty h4 {
+    color: black;
+    text-shadow: none;
+}
+
+#facultyList > * {
+    flex: 1 1 20%;
+    max-width: 200px;
+}
+
+.individual {
+    min-width: 200px;
+    margin: 1em;
+    padding-top: 1em;
+    border: 2px solid;
+    border-color: lightgray;
+    text-align: center;
+    align-items: center;
+}
+
+.individual img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+#staff {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+#staff h4 {
+    color: black;
+    text-shadow: none;
+}
+
+#staff > * {
+    flex: 1 1 20%;
+    max-width: 200px;
+}
